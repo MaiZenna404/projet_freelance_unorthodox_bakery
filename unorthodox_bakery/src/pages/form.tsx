@@ -142,19 +142,19 @@ const ContactForm = () => {
                                     </SelectTrigger>
                                     <SelectContent className="bg-white border-gray-200">
                                         <SelectItem value="commande" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
-                                            Commande spéciale
-                                        </SelectItem>
-                                        <SelectItem value="evenement" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
-                                            Événement privé
+                                            Commande
                                         </SelectItem>
                                         <SelectItem value="partenariat" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
-                                            Partenariat
+                                            Partenariat Comemercial
                                         </SelectItem>
-                                        <SelectItem value="feedback" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
-                                            Retour d'expérience
+                                        <SelectItem value="presse" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
+                                            Presse, média & collaborations
                                         </SelectItem>
-                                        <SelectItem value="reclamation" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
-                                            Réclamation
+                                        <SelectItem value="immobilier" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
+                                            Immobilier & développement d'enseigne
+                                        </SelectItem>
+                                        <SelectItem value="recrutement" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
+                                            Recrutement
                                         </SelectItem>
                                         <SelectItem value="autre" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
                                             Autre
