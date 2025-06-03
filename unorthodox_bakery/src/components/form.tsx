@@ -5,9 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Send } from 'lucide-react';
-import Footer from './Footer';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -57,130 +55,137 @@ const ContactForm = () => {
         formData.objet && formData.message && formData.accepteTraitement;
 
     return (
-        <>
-        <section id="contacts" className="min-h-screen py-20 px-4">
-            <div className="max-w-2xl mx-auto">
-                <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl">
-                    <CardHeader>
-                        <CardTitle className="text-3xl font-bold text-gray-900">
-                            CONTACTEZ-NOUS
-                        </CardTitle>
-                        <p className="text-gray-600">
-                            Nous serions ravis de vous entendre. Envoyez-nous un message !
-                        </p>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="space-y-6">
-                            {/* Nom et Prénom */}
-                            <div className="grid md:grid-cols-2 gap-4">
-                                <div className="space-y-2">
-                                    <Label htmlFor="nom" className="text-sm font-medium text-gray-700">
-                                        Nom *
-                                    </Label>
-                                    <Input
-                                        id="nom"
-                                        type="text"
-                                        value={formData.nom}
-                                        onChange={(e) => handleInputChange('nom', e.target.value)}
-                                        className="bg-gray-50/50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
-                                        required
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="prenom" className="text-sm font-medium text-gray-700">
-                                        Prénom *
-                                    </Label>
-                                    <Input
-                                        id="prenom"
-                                        type="text"
-                                        value={formData.prenom}
-                                        onChange={(e) => handleInputChange('prenom', e.target.value)}
-                                        className="bg-gray-50/50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
-                                        required
-                                    />
-                                </div>
-                            </div>
+        <section className="min-h-screen py-6 px-4">
+            <div className="max-w-4xl mx-auto">
+                <div className="mb-6 text-center border-b-2 border-emerald-200 pb-4">
+                    <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
+                        CONTACTEZ-NOUS
+                    </h1>
+                    <p className="text-base text-gray-600 font-medium">
+                        Nous serions ravis de vous entendre. Envoyez-nous un message !
+                    </p>
+                </div>
 
-                            {/* Email et Téléphone */}
-                            <div className="grid md:grid-cols-2 gap-4">
-                                <div className="space-y-2">
-                                    <Label htmlFor="email" className="text-sm font-medium text-gray-700">
-                                        Email *
-                                    </Label>
-                                    <Input
-                                        id="email"
-                                        type="email"
-                                        value={formData.email}
-                                        onChange={(e) => handleInputChange('email', e.target.value)}
-                                        className="bg-gray-50/50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
-                                        required
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="telephone" className="text-sm font-medium text-gray-700">
-                                        Téléphone fixe ou portable
-                                    </Label>
-                                    <Input
-                                        id="telephone"
-                                        type="tel"
-                                        value={formData.telephone}
-                                        onChange={(e) => handleInputChange('telephone', e.target.value)}
-                                        className="bg-gray-50/50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
-                                    />
-                                </div>
-                            </div>
+                <div className="space-y-4">
+                    {/* Nom et Prénom */}
+                    <div className="grid md:grid-cols-2 gap-4 p-4 border-2 border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+                        <div className="space-y-1">
+                            <Label htmlFor="nom" className="text-sm font-semibold text-gray-800 flex items-center">
+                                Nom <span className="text-red-500 ml-1">*</span>
+                            </Label>
+                            <Input
+                                id="nom"
+                                type="text"
+                                value={formData.nom}
+                                onChange={(e) => handleInputChange('nom', e.target.value)}
+                                className="border-2 border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 rounded-lg h-10 text-gray-800 font-medium shadow-sm hover:border-gray-400 transition-colors duration-200 text-sm px-4"
+                                required
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <Label htmlFor="prenom" className="text-sm font-semibold text-gray-800 flex items-center">
+                                Prénom <span className="text-red-500 ml-1">*</span>
+                            </Label>
+                            <Input
+                                id="prenom"
+                                type="text"
+                                value={formData.prenom}
+                                onChange={(e) => handleInputChange('prenom', e.target.value)}
+                                className="border-2 border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 rounded-lg h-10 text-gray-800 font-medium shadow-sm hover:border-gray-400 transition-colors duration-200 text-sm px-4"
+                                required
+                            />
+                        </div>
+                    </div>
 
-                            
-                            <div className="space-y-2 ">
-                                <Label htmlFor="objet" className="text-sm font-medium text-gray-700">
-                                    Objet *
+                    {/* Email et Téléphone */}
+                    <div className="grid md:grid-cols-2 gap-4 p-4 border-2 border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+                        <div className="space-y-1">
+                            <Label htmlFor="email" className="text-sm font-semibold text-gray-800 flex items-center">
+                                Email <span className="text-red-500 ml-1">*</span>
+                            </Label>
+                            <Input
+                                id="email"
+                                type="email"
+                                value={formData.email}
+                                onChange={(e) => handleInputChange('email', e.target.value)}
+                                className="border-2 border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 rounded-lg h-10 text-gray-800 font-medium shadow-sm hover:border-gray-400 transition-colors duration-200 text-sm px-4"
+                                required
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <Label htmlFor="telephone" className="text-sm font-semibold text-gray-800">
+                                Téléphone fixe ou portable
+                            </Label>
+                            <Input
+                                id="telephone"
+                                type="tel"
+                                value={formData.telephone}
+                                onChange={(e) => handleInputChange('telephone', e.target.value)}
+                                className="border-2 border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 rounded-lg h-10 text-gray-800 font-medium shadow-sm hover:border-gray-400 transition-colors duration-200 text-sm px-4"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Objet et Message sur la même ligne */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                        {/* Objet */}
+                        <div className="p-4 border-2 border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+                            <div className="space-y-1">
+                                <Label htmlFor="objet" className="text-sm font-semibold text-gray-800 flex items-center">
+                                    Objet <span className="text-red-500 ml-1">*</span>
                                 </Label>
                                 <Select
                                     value={formData.objet}
                                     onValueChange={(value) => handleInputChange('objet', value)}
                                 >
-                                    <SelectTrigger className="!bg-white border-gray-200 focus:border-emerald-500 focus:ring-emerald-500 text-gray-900 hover:bg-gray-50">
+                                    <SelectTrigger className="border-2 border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 text-gray-800 hover:border-gray-400 rounded-lg h-10 font-medium shadow-sm transition-colors duration-200 text-sm px-4">
                                         <SelectValue placeholder="Sélectionnez un objet" className="text-gray-500" />
                                     </SelectTrigger>
-                                    <SelectContent className="bg-white border-gray-200">
-                                        <SelectItem value="commande" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
+                                    <SelectContent className="bg-white border-2 border-gray-200 rounded-lg shadow-lg">
+                                        <SelectItem value="commande" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1">
                                             Commande
                                         </SelectItem>
-                                        <SelectItem value="partenariat" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
-                                            Partenariat Comemercial
+                                        <SelectItem value="partenariat" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1">
+                                            Partenariat Commercial
                                         </SelectItem>
-                                        <SelectItem value="presse" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
+                                        <SelectItem value="presse" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1">
                                             Presse, média & collaborations
                                         </SelectItem>
-                                        <SelectItem value="immobilier" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
+                                        <SelectItem value="immobilier" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1">
                                             Immobilier & développement d'enseigne
                                         </SelectItem>
-                                        <SelectItem value="recrutement" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
+                                        <SelectItem value="recrutement" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1">
                                             Recrutement
                                         </SelectItem>
-                                        <SelectItem value="autre" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-50">
+                                        <SelectItem value="autre" className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1">
                                             Autre
                                         </SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
+                        </div>
 
-                            {/* Message */}
-                            <div className="space-y-2">
-                                <Label htmlFor="message" className="text-sm font-medium text-gray-700">
-                                    Votre message *
+                        {/* Message */}
+                        <div className="p-4 border-2 border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+                            <div className="space-y-1">
+                                <Label htmlFor="message" className="text-sm font-semibold text-gray-800 flex items-center">
+                                    Votre message <span className="text-red-500 ml-1">*</span>
                                 </Label>
                                 <Textarea
                                     id="message"
                                     value={formData.message}
                                     onChange={(e) => handleInputChange('message', e.target.value)}
-                                    className="bg-gray-50/50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500 min-h-[120px] resize-none"
+                                    className="border-2 border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 min-h-[80px] resize-none rounded-lg text-gray-800 font-medium shadow-sm hover:border-gray-400 transition-colors duration-200 text-sm p-3"
                                     placeholder="Décrivez votre demande en détail..."
                                     required
                                 />
                             </div>
+                        </div>
+                    </div>
 
-                            {/* Checkbox de consentement */}
+                    {/* Checkbox de consentement et bouton sur la même ligne */}
+                    <div className="grid md:grid-cols-2 gap-4 items-end">
+                        <div className="p-4 border-2 border-gray-200 rounded-lg shadow-sm">
                             <div className="flex items-start space-x-3">
                                 <Checkbox
                                     id="accepteTraitement"
@@ -188,41 +193,39 @@ const ContactForm = () => {
                                     onChange={(e) => handleInputChange('accepteTraitement', e.target.checked)}
                                     className="mt-1"
                                 />
-
                                 <Label
                                     htmlFor="accepteTraitement"
-                                    className="text-sm text-gray-600 leading-relaxed cursor-pointer"
+                                    className="text-sm text-gray-700 leading-relaxed cursor-pointer font-medium"
                                 >
-                                    En envoyant ce formulaire, vous acceptez le traitement de vos données personnelles pour recevoir une réponse à votre demande. *
+                                    En envoyant ce formulaire, vous acceptez le traitement de vos données personnelles pour recevoir une réponse à votre demande. <span className="text-red-500">*</span>
                                 </Label>
                             </div>
+                        </div>
 
-                            {/* Bouton d'envoi - Hover corrigé */}
+                        {/* Bouton d'envoi */}
+                        <div className="p-4">
                             <Button
                                 type="submit"
-                                onClick={handleSubmit}
                                 disabled={!isFormValid || isSubmitting}
-                                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-emerald-600"
+                                className="w-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-emerald-600 border-2 border-emerald-700 hover:border-emerald-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-lg text-sm"
                             >
                                 {isSubmitting ? (
                                     <div className="flex items-center justify-center space-x-2">
                                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                        <span>Envoi en cours...</span>
+                                        <span className="text-sm">Envoi en cours...</span>
                                     </div>
                                 ) : (
                                     <div className="flex items-center justify-center space-x-2">
                                         <Send className="w-4 h-4" />
-                                        <span>ENVOYER MA DEMANDE</span>
+                                        <span className="text-sm tracking-wide">ENVOYER MA DEMANDE</span>
                                     </div>
                                 )}
                             </Button>
                         </div>
-                    </CardContent>
-                </Card>
+                    </div>
+                </div>
             </div>
         </section>
-        <Footer />
-        </>
     );
 };
 
