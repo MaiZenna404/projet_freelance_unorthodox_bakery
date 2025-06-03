@@ -226,6 +226,7 @@ const ContactForm = () => {
                 </div>
             </div>
         </section>
+        
     );
 };
 

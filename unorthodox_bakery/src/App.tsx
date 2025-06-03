@@ -6,6 +6,7 @@ import Services from './components/Events'
 import Pro from './components/Pro'
 
 import ContactForm from './components/form';
+import Footer from './components/Footer'
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
       <Services />
       <Pro />
       <ContactForm />
+      <Footer />
     </>
   )
 }
