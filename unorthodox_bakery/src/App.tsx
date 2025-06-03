@@ -2,7 +2,8 @@ import './App.css'
 { /* Import Components */}
 import HeroSection from './components/HeroSection'
 import NavBar from './components/NavBar'
-import Services from './components/Services'
+import Services from './components/Events'
+import Pro from './components/Pro'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <NavBar />
       <HeroSection />
       <Services />
+      <Pro />
     </>
   )
 }

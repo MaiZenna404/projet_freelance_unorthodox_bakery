@@ -11,7 +11,8 @@ interface BakeryDetails {
 }
 
 const navbarElements: NavBarProps[] = [
-  { link: "Pro & Event", href: "services" },
+  { link: "Event", href: "events" },
+  { link: "Pro", href: "pro" },
   { link: "Contact", href: "/" },
 ];
 
