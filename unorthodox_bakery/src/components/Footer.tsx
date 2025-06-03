@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white/5 backdrop-blur-sm flex align-center text-center py-8 pt-10">
+    <footer className="w-full bg-white/5 backdrop-blur-sm flex align-center text-center pt-10 pb-8">
       {/* Footer content */}
       <div className="w-full flex flex-col justify-center items-center gap-6">
         {/* Social and contact links */}

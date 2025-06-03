@@ -43,7 +43,7 @@ export default function NavBar() {
           </ul>
         </div>
         {/* Add brand name */}
-        <div className="ml-[20%] flex flex-col items-center">
+        <div className="ml-[18%] flex flex-col items-center">
           <h1 className="font-bold tracking-widest w-full text-center">
             UNORTHODOX BAKERY
           </h1>
