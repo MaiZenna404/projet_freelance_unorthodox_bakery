@@ -1,3 +1,6 @@
+
+{/* Import UI components and styles */ }
+import React from "react";
 import Footer from "./Footer";
 import { Button } from "./ui/button";
 
