@@ -1,8 +1,10 @@
+import Footer from "./Footer";
+
 export default function HeroSection() {
     return (
       <>
         {/* Hero Section */}
-        <div className="flex flex-col items-center justify-center min-h-[60vh] pt-[18%] px-4 bg-gradient-to-b from-white/25 to-transparent">
+        <div className="flex flex-col items-center justify-center min-h-[60vh] pt-[18%] px-4 bg-gradient-to-b from-white/25 to-transparent mb-[3%]">
           <h1 className="font-bold tracking-widest w-full text-center text-3xl">
             PAINS AU LEVAIN, BON CAFÉ, PLAISIRS SALÉS & SUCRÉS
           </h1>
@@ -11,7 +13,9 @@ export default function HeroSection() {
             moment de la journée. <br /> Des produits frais 100% maison, préparés avec
             des ingrédients sourcés localement... <br /> et beaucoup d'amour
           </p>
-        </div>
+            </div>
+            <Footer />
+        {/* End Hero Section */}
       </>
     );
 }
