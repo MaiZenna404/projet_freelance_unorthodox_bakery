@@ -1,5 +1,5 @@
 import './App.css'
-import ContactForm from './pages/form';
+import ContactForm from './components/form';
 function App() {
   return (
     <>
