@@ -279,7 +279,7 @@ const ContactForm: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Checkbox de consentement et boutons */}
+                    {/* Checkbox de consentement et bouton d'envoi */}
                     <div className="grid md:grid-cols-2 gap-4 items-end">
                         <div className="p-4 border-2 border-gray-200 rounded-lg shadow-sm">
                             <div className="flex items-start space-x-3">
@@ -298,19 +298,8 @@ const ContactForm: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Boutons */}
-                        <div className="p-4 space-y-2">
-                            {/* Bouton pour collecter les données seulement */}
-                            <Button
-                                type="button"
-                                onClick={collectFormData}
-                                disabled={!isFormValid}
-                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                            >
-                                Collecter les données
-                            </Button>
-
-                            {/* Bouton d'envoi */}
+                        {/* Bouton d'envoi */}
+                        <div className="p-4">
                             <Button
                                 type="button"
                                 onClick={(e) => handleSubmit(e as any)}
