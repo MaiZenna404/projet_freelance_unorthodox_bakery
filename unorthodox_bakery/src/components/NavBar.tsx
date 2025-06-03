@@ -26,7 +26,7 @@ const bakeryInfos: BakeryDetails[] = [
 export default function NavBar() {
   return (
     <>
-      <nav className="w-full flex items-center bg-white/10 shadow-md p-2 fixed top-0 z-50 backdrop-blur-sm">
+      <nav className="w-full flex items-center bg-white/15 shadow-none p-2 fixed top-0 z-50 backdrop-blur-sm">
         {/* Add Navbar links */}
         <div>
           <ul className="flex flex-row">

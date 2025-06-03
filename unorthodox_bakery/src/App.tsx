@@ -1,11 +1,13 @@
 import './App.css'
+import HeroSection from './components/HeroSection'
 import NavBar from './components/NavBar'
 
 function App() {
   return (
-    // Use inline styles as a fallback to debug
+    <>
       <NavBar />
-    
+      <HeroSection />
+    </>
   )
 }
 
