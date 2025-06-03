@@ -1,11 +1,12 @@
 import './App.css'
 
 function App() {
-
   return (
-    <>
-      <h1 className='text-red-800 font-semibold text-3xl'>TEST</h1>
-    </>
+    // Use inline styles as a fallback to debug
+    <div 
+      className="w-full bg-light-blue-gradient" >
+      {/* Mettre les components et autres éléments de l'App ici */}
+    </div>
   )
 }
 
