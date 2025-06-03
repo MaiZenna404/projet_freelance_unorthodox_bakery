@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 export default function Services() {
     return (
       <>
-        <div className="w-full overflow-x-hidden min-h-[60vh] pt-[20%]">
+        <div id="services" className="w-full overflow-x-hidden min-h-[60vh] pt-[20%]">
           {" "}
           {/* Add this wrapper */}
           <div className="flex flex-col items-start justify-center px-6 max-w-8xl mx-auto mb-[3%]">

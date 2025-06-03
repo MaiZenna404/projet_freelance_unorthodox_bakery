@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 interface NavBarProps {
   link: string;
@@ -11,7 +11,7 @@ interface BakeryDetails {
 }
 
 const navbarElements: NavBarProps[] = [
-  { link: "Pro & Event", href: "/" },
+  { link: "Pro & Event", href: "services" },
   { link: "Contact", href: "/" },
 ];
 
@@ -32,12 +32,17 @@ export default function NavBar() {
           <ul className="flex flex-row">
             {navbarElements.map((element, index) => (
               <li key={index}>
-                <Link
+                <ScrollLink
                   to={element.href || "#"}
-                  className= "ml-5 font-primary text-xl text-black hover:text-black focus:text-black active:text-black font-medium px-4 py-2 transition-colors"
+                  smooth={true}
+                  duration={50}
+                  offset={-15} // Adjust this value based on your navbar height
+                  spy={true}
+                  activeClass="active"
+                  className="ml-5 font-primary text-xl text-black hover:text-black focus:text-black active:text-black font-medium px-4 py-2 transition-colors cursor-pointer"
                 >
                   {element.link}
-                </Link>
+                </ScrollLink>
               </li>
             ))}
           </ul>
