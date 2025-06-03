@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import { BrowserRouter } from 'react-router-dom';
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('bg-light-blue-gradient');
@@ -9,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>,
 )
