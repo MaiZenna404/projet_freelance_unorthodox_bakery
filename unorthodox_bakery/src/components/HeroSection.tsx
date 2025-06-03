@@ -1,4 +1,3 @@
-import Footer from "./Footer";
 
 export default function HeroSection() {
     return (
@@ -14,7 +13,6 @@ export default function HeroSection() {
             des ingrédients sourcés localement... <br /> et beaucoup d'amour
           </p>
             </div>
-            <Footer />
         {/* End Hero Section */}
       </>
     );

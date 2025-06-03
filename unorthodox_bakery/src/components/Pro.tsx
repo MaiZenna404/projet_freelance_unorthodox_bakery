@@ -2,7 +2,7 @@
   /* Import UI components and styles */
 }
 import React from "react";
-import Footer from "./Footer";
+
 
 export default function Pro() {
   return (
@@ -30,7 +30,6 @@ export default function Pro() {
           </p>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

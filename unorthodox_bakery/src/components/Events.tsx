@@ -1,7 +1,7 @@
 
 {/* Import UI components and styles */ }
 import React from "react";
-import Footer from "./Footer";
+
 import { Button } from "./ui/button";
 
 export default function Services() {
@@ -30,7 +30,6 @@ export default function Services() {
             </Button>
           </div>
         </div>
-        <Footer />
       </>
     );
 }

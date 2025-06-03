@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Send } from 'lucide-react';
+import Footer from './Footer';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -56,7 +57,8 @@ const ContactForm = () => {
         formData.objet && formData.message && formData.accepteTraitement;
 
     return (
-        <section className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 py-12 px-4">
+        <>
+        <section id="contacts" className="min-h-screen py-20 px-4">
             <div className="max-w-2xl mx-auto">
                 <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl">
                     <CardHeader>
@@ -219,6 +221,8 @@ const ContactForm = () => {
                 </Card>
             </div>
         </section>
+        <Footer />
+        </>
     );
 };
 

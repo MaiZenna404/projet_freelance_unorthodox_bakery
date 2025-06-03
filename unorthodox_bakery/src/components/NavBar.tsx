@@ -13,7 +13,7 @@ interface BakeryDetails {
 const navbarElements: NavBarProps[] = [
   { link: "Event", href: "events" },
   { link: "Pro", href: "pro" },
-  { link: "Contact", href: "/" },
+  { link: "Contact", href: "contacts" },
 ];
 
 // Remove the dashes from the text
@@ -49,7 +49,7 @@ export default function NavBar() {
           </ul>
         </div>
         {/* Add brand name */}
-        <div className="ml-[18%] flex flex-col items-center">
+        <div className="ml-[16%] flex flex-col items-center">
           <h1 className="font-bold tracking-widest w-full text-center">
             UNORTHODOX BAKERY
           </h1>
