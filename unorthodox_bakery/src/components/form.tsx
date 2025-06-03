@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Send } from 'lucide-react';
+import SendButton from '@/components/SendButton';
 
 // Interface TypeScript pour les données du formulaire
 interface FormData {
@@ -300,24 +301,7 @@ const ContactForm: React.FC = () => {
 
                         {/* Bouton d'envoi */}
                         <div className="p-4">
-                            <Button
-                                type="button"
-                                onClick={(e) => handleSubmit(e as any)}
-                                disabled={!isFormValid || isSubmitting}
-                                className="w-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-emerald-600 border-2 border-emerald-700 hover:border-emerald-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-lg text-sm"
-                            >
-                                {isSubmitting ? (
-                                    <div className="flex items-center justify-center space-x-2">
-                                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                        <span className="text-sm">Envoi en cours...</span>
-                                    </div>
-                                ) : (
-                                    <div className="flex items-center justify-center space-x-2">
-                                        <Send className="w-4 h-4" />
-                                        <span className="text-sm tracking-wide">ENVOYER MA DEMANDE</span>
-                                    </div>
-                                )}
-                            </Button>
+                            <SendButton formData={formData} />
                         </div>
                     </div>
                 </div>
