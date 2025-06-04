@@ -1,18 +1,18 @@
 import './App.css'
-{ /* Import Components */}
 import HeroSection from './components/HeroSection'
 import NavBar from './components/NavBar'
-import Services from './components/Events'
+import Events from './components/Events'
 import Pro from './components/Pro'
+import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
 
-import ContactForm from './components/form';
+
 function App() {
   return (
     <>
       <NavBar />
       <HeroSection />
-      <Services />
+      <Events />
       <Pro />
       <ContactForm />
       <Footer />

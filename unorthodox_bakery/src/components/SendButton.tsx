@@ -17,14 +17,29 @@ interface FormData {
 // Props attendues
 interface SendButtonProps {
   formData: FormData;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  className?: string;
+  children: React.ReactNode;
+  onClick?: () => void;
 }
 
 // Récupération des identifiants depuis .env
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const CUSTOMER_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CUSTOMER;
+const ADMIN_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ADMIN;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-const SendButton: React.FC<SendButtonProps> = ({ formData }) => {
+// Email sur lequel le message sera envoyé (à changer une fois le projet terminé)
+const mailTo: string = "mai.than.222@gmail.com"
+
+const SendButton: React.FC<SendButtonProps> = ({ 
+  formData,
+  type = "button", 
+  disabled = false, 
+  className = "", 
+  onClick 
+}) => {
   const [isSending, setIsSending] = useState(false);
 
   const isFormValid = (): boolean => {
@@ -48,20 +63,30 @@ const SendButton: React.FC<SendButtonProps> = ({ formData }) => {
 
     try {
       const templateParams = {
+        to_name: "Unorthodox Bakery", // Your business name
+        to_email: mailTo, // Your business email
         from_name: `${formData.prenom} ${formData.nom}`,
-        from_email: 'exerandomizer@gmail.com',
-        to_email: formData.email,
+        from_email: formData.email,
+        reply_to: formData.email, // Allows you to reply directly
         subject: formData.objet,
-        message: formData.message,
+        message: formData.message.replace(/\n/g, '<br>'), // Convert newlines to HTML breaks
         telephone: formData.telephone || 'Non fourni'
       };
 
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        templateParams,
-        PUBLIC_KEY
-      );
+      // First send admin notification
+      await emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
+      // Then send customer confirmation
+      const customerParams = {
+        to_name: `${formData.prenom}`, // Just first name for personalization
+        to_email: formData.email,
+        from_name: "Unorthodox Bakery",
+        from_email: mailTo, // Use a business email
+        subject: "Votre message a bien été reçu - Unorthodox Bakery",
+        objet: formData.objet, // Add this to show in template
+        message: formData.message.substring(0, 50) + "..." // First part of their message
+      };
+      await emailjs.send(SERVICE_ID, CUSTOMER_TEMPLATE_ID, customerParams, PUBLIC_KEY);
 
       alert('Message envoyé avec succès !');
     } catch (error) {
@@ -74,10 +99,10 @@ const SendButton: React.FC<SendButtonProps> = ({ formData }) => {
 
   return (
     <Button
-      type="button"
-      onClick={handleSend}
-      disabled={!isFormValid() || isSending}
-      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+      type={type}
+      disabled={disabled || !isFormValid() || isSending}
+      onClick={onClick || handleSend}
+      className={`${className} w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm`}
     >
       {isSending ? (
         <div className="flex items-center space-x-2">
