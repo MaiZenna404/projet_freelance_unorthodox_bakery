@@ -26,7 +26,8 @@ interface SendButtonProps {
 
 // Récupération des identifiants depuis .env
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const CUSTOMER_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CUSTOMER;
+const ADMIN_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ADMIN;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 // Email sur lequel le message sera envoyé (à changer une fois le projet terminé)
@@ -62,20 +63,30 @@ const SendButton: React.FC<SendButtonProps> = ({
 
     try {
       const templateParams = {
+        to_name: "Unorthodox Bakery", // Your business name
+        to_email: mailTo, // Your business email
         from_name: `${formData.prenom} ${formData.nom}`,
         from_email: formData.email,
-        to_email: mailTo,
+        reply_to: formData.email, // Allows you to reply directly
         subject: formData.objet,
-        message: formData.message,
+        message: formData.message.replace(/\n/g, '<br>'), // Convert newlines to HTML breaks
         telephone: formData.telephone || 'Non fourni'
       };
 
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        templateParams,
-        PUBLIC_KEY
-      );
+      // First send admin notification
+      await emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
+      // Then send customer confirmation
+      const customerParams = {
+        to_name: `${formData.prenom}`, // Just first name for personalization
+        to_email: formData.email,
+        from_name: "Unorthodox Bakery",
+        from_email: mailTo, // Use a business email
+        subject: "Votre message a bien été reçu - Unorthodox Bakery",
+        objet: formData.objet, // Add this to show in template
+        message: formData.message.substring(0, 50) + "..." // First part of their message
+      };
+      await emailjs.send(SERVICE_ID, CUSTOMER_TEMPLATE_ID, customerParams, PUBLIC_KEY);
 
       alert('Message envoyé avec succès !');
     } catch (error) {
