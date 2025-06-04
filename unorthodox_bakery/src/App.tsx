@@ -1,10 +1,21 @@
 import './App.css'
+{ /* Import Components */}
+import HeroSection from './components/HeroSection'
+import NavBar from './components/NavBar'
+import Services from './components/Events'
+import Pro from './components/Pro'
+import Footer from './components/Footer'
 
-
+import ContactForm from './components/form';
 function App() {
   return (
     <>
-      <h1 className='text-red-800 font-semibold text-3xl'>TEST</h1>
+      <NavBar />
+      <HeroSection />
+      <Services />
+      <Pro />
+      <ContactForm />
+      <Footer />
     </>
   )
 }
