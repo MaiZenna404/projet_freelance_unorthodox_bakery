@@ -68,7 +68,7 @@ const SendButton: React.FC<SendButtonProps> = ({
         to_email: mailTo, // Your business email
         from_name: `${formData.prenom} ${formData.nom}`,
         from_email: formData.email,
-        reply_to: formData.email, // Allows you to reply directly
+        reply_to: formData.email,
         subject: formData.objet,
         message: formData.message.replace(/\n/g, "<br>"), // Convert newlines to HTML breaks
         telephone: formData.telephone || "Non fourni",
