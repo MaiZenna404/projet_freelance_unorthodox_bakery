@@ -37,7 +37,7 @@ export default function NavBar() {
                   to={element.href || "#"}
                   smooth={true}
                   duration={50}
-                  offset={-15} // Adjust this value based on your navbar height
+                  offset={-100} // Adjust this value based on your navbar height
                   spy={true}
                   activeClass="active"
                   className="ml-5 font-primary text-xl text-black hover:text-black focus:text-black active:text-black font-medium px-4 py-2 transition-colors cursor-pointer"

@@ -147,7 +147,7 @@ const ContactForm: React.FC = () => {
     );
 
     return (
-      <section className="min-h-screen py-6 px-4">
+      <section id="contacts" className="min-h-screen py-6 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="mb-6 text-center border-b-2 border-emerald-200 pb-4">
             <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
