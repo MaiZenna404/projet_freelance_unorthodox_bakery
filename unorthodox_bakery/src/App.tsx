@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection'
 import NavBar from './components/NavBar'
 import Services from './components/Events'
 import Pro from './components/Pro'
+import Footer from './components/Footer'
 
 import ContactForm from './components/form';
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Services />
       <Pro />
       <ContactForm />
+      <Footer />
     </>
   )
 }
