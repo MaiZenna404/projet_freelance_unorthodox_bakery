@@ -17,6 +17,11 @@ interface FormData {
 // Props attendues
 interface SendButtonProps {
   formData: FormData;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  className?: string;
+  children: React.ReactNode;
+  onClick?: () => void;
 }
 
 // Récupération des identifiants depuis .env
@@ -24,7 +29,16 @@ const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-const SendButton: React.FC<SendButtonProps> = ({ formData }) => {
+// Email sur lequel le message sera envoyé (à changer une fois le projet terminé)
+const mailTo: string = "mai.than.222@gmail.com"
+
+const SendButton: React.FC<SendButtonProps> = ({ 
+  formData,
+  type = "button", 
+  disabled = false, 
+  className = "", 
+  onClick 
+}) => {
   const [isSending, setIsSending] = useState(false);
 
   const isFormValid = (): boolean => {
@@ -49,8 +63,8 @@ const SendButton: React.FC<SendButtonProps> = ({ formData }) => {
     try {
       const templateParams = {
         from_name: `${formData.prenom} ${formData.nom}`,
-        from_email: 'exerandomizer@gmail.com',
-        to_email: formData.email,
+        from_email: formData.email,
+        to_email: mailTo,
         subject: formData.objet,
         message: formData.message,
         telephone: formData.telephone || 'Non fourni'
@@ -74,10 +88,10 @@ const SendButton: React.FC<SendButtonProps> = ({ formData }) => {
 
   return (
     <Button
-      type="button"
-      onClick={handleSend}
-      disabled={!isFormValid() || isSending}
-      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+      type={type}
+      disabled={disabled || !isFormValid() || isSending}
+      onClick={onClick || handleSend}
+      className={`${className} w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm`}
     >
       {isSending ? (
         <div className="flex items-center space-x-2">
