@@ -49,7 +49,7 @@ const SendButton: React.FC<SendButtonProps> = ({ formData }) => {
     try {
       const templateParams = {
         from_name: `${formData.prenom} ${formData.nom}`,
-        from_email: 'exerandomizer@gmail.com',
+        from_email: formData.email,
         to_email: formData.email,
         subject: formData.objet,
         message: formData.message,
