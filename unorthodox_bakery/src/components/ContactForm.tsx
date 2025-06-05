@@ -176,7 +176,7 @@ const ContactForm: React.FC = () => {
               <div className="space-y-1">
                 <Label
                   htmlFor="nom"
-                  className="text-sm font-semibold text-gray-800 flex items-center"
+                  className="text-base font-semibold text-gray-800 flex items-center"
                 >
                   Nom <span className="text-red-500 ml-1">*</span>
                 </Label>
@@ -194,7 +194,7 @@ const ContactForm: React.FC = () => {
               <div className="space-y-1">
                 <Label
                   htmlFor="prenom"
-                  className="text-sm font-semibold text-gray-800 flex items-center"
+                  className="text-base font-semibold text-gray-800 flex items-center"
                 >
                   Prénom <span className="text-red-500 ml-1">*</span>
                 </Label>
@@ -216,7 +216,7 @@ const ContactForm: React.FC = () => {
               <div className="space-y-1">
                 <Label
                   htmlFor="email"
-                  className="text-sm font-semibold text-gray-800 flex items-center"
+                  className="text-base font-semibold text-gray-800 flex items-center h-6" // Changed from text-sm to text-base
                 >
                   Email <span className="text-red-500 ml-1">*</span>
                 </Label>
@@ -227,16 +227,18 @@ const ContactForm: React.FC = () => {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     handleInputChange("email", e.target.value)
                   }
-                  className="border-2 border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 rounded-lg h-10 text-gray-800 font-medium shadow-sm hover:border-gray-400 transition-colors duration-200 text-sm px-4"
+                  className="border-2 border-gray-300 focus:border-[#b6e4d9] focus:ring-2 focus:ring-[#b6e4d9]/30 rounded-lg h-10 text-gray-800 font-medium shadow-sm hover:border-gray-400 transition-colors duration-200 text-sm px-4"
                   required
+                  placeholder='jean.dupont@gmail.com'
                 />
               </div>
               <div className="space-y-1">
                 <Label
                   htmlFor="telephone"
-                  className="text-sm font-semibold text-gray-800"
+                  className="text-base font-semibold text-gray-800 flex items-center h-6" // Made consistent with email label
                 >
-                  Téléphone fixe ou portable
+                  Téléphone fixe ou portable{" "}
+                  <span className="text-red-500 ml-1">*</span>
                 </Label>
                 <Input
                   id="telephone"
@@ -245,7 +247,8 @@ const ContactForm: React.FC = () => {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     handleInputChange("telephone", e.target.value)
                   }
-                  className="border-2 border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 rounded-lg h-10 text-gray-800 font-medium shadow-sm hover:border-gray-400 transition-colors duration-200 text-sm px-4"
+                  className="border-2 border-gray-300 focus:border-[#b6e4d9] focus:ring-2 focus:ring-[#b6e4d9]/30 rounded-lg h-10 text-gray-800 font-medium shadow-sm hover:border-gray-400 transition-colors duration-200 text-sm px-4"
+                  required
                 />
               </div>
             </div>
@@ -257,9 +260,9 @@ const ContactForm: React.FC = () => {
                 <div className="space-y-1">
                   <Label
                     htmlFor="objet"
-                    className="text-sm font-semibold text-gray-800 flex items-center"
+                    className="text-base font-semibold text-gray-800 flex items-center"
                   >
-                    Objet <span className="text-red-500 ml-1">*</span>
+                    Objet <span className="text-red-500 ml-1 mb-1">*</span>
                   </Label>
                   <Select
                     value={formData.objet}
@@ -275,37 +278,37 @@ const ContactForm: React.FC = () => {
                     </SelectTrigger>
                     <SelectContent className="bg-white border-2 border-gray-200 rounded-lg shadow-lg">
                       <SelectItem
-                        value="commande"
+                        value="Commande"
                         className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1"
                       >
                         Commande
                       </SelectItem>
                       <SelectItem
-                        value="partenariat"
+                        value="Partenariat Commercial"
                         className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1"
                       >
                         Partenariat Commercial
                       </SelectItem>
                       <SelectItem
-                        value="presse"
+                        value="Presse, média & collaborations"
                         className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1"
                       >
                         Presse, média & collaborations
                       </SelectItem>
                       <SelectItem
-                        value="immobilier"
+                        value="Immobilier & développement d'enseigne"
                         className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1"
                       >
                         Immobilier & développement d'enseigne
                       </SelectItem>
                       <SelectItem
-                        value="recrutement"
+                        value="Recrutement"
                         className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1"
                       >
                         Recrutement
                       </SelectItem>
                       <SelectItem
-                        value="autre"
+                        value="Autre"
                         className="text-gray-900 hover:bg-emerald-50 focus:bg-emerald-100 rounded-md mx-1 my-1"
                       >
                         Autre
@@ -320,7 +323,7 @@ const ContactForm: React.FC = () => {
                 <div className="space-y-1">
                   <Label
                     htmlFor="message"
-                    className="text-sm font-semibold text-gray-800 flex items-center"
+                    className="text-base font-semibold text-gray-800 flex items-center"
                   >
                     Votre message <span className="text-red-500 ml-1">*</span>
                   </Label>
@@ -352,7 +355,7 @@ const ContactForm: React.FC = () => {
                   />
                   <Label
                     htmlFor="accepteTraitement"
-                    className="text-sm text-gray-700 leading-relaxed cursor-pointer font-medium"
+                    className="text-base text-gray-700 leading-relaxed cursor-pointer font-medium"
                   >
                     En envoyant ce formulaire, vous acceptez le traitement de
                     vos données personnelles pour recevoir une réponse à votre
