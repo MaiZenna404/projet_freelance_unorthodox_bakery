@@ -49,13 +49,14 @@ export default function NavBar() {
                 duration={500}
                 offset={-100}
                 activeClass="bg-black/10"
-                className="font-semibold cursor-pointer hover:text-black/80" // Removed underline
+                className="block w-full font-semibold cursor-pointer hover:text-black/80" // Added block and w-full
               >
                 <h1 className="font-bold tracking-widest text-xs text-center text-black">
                   UNORTHODOX BAKERY
                 </h1>
               </ScrollLink>
-              {/* Bakery info */}
+
+              {/* Bakery info - leave as is */}
               <div className="flex justify-center items-center mt-1 overflow-x-auto w-full px-2">
                 {bakeryInfos.map((info, index) => (
                   <React.Fragment key={index}>
@@ -161,17 +162,18 @@ export default function NavBar() {
               smooth={true}
               duration={500}
               offset={-100}
-              className="cursor-pointer" // No underline here either
+              className="block w-full text-center cursor-pointer" // Added block, w-full, and text-center
             >
               <h1 className="font-bold tracking-widest text-xl lg:text-2xl text-center text-black">
                 UNORTHODOX BAKERY
               </h1>
             </ScrollLink>
+
             {/* Bakery info - DESKTOP */}
             <div className="flex justify-center items-center mt-2 w-full max-w-2xl mx-auto">
               {bakeryInfos.map((info, index) => (
                 <React.Fragment key={index}>
-                  <h2 className="text-sm lg:text-base text-black/80 font-medium tracking-widest">
+                  <h2 className="text-sm mx-1.5 lg:text-base text-black/80 font-medium tracking-widest">
                     {info.name}
                   </h2>
                   {index < bakeryInfos.length - 1 && (
