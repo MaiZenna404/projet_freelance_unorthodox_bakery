@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 // import { Send } from 'lucide-react';
 import SendButton from '@/components/SendButton';
+import { toast } from "sonner";
 
 // Interface TypeScript pour les données du formulaire
 interface FormData {
@@ -107,8 +108,18 @@ const ContactForm: React.FC = () => {
             // 2. Envoyer les données avec votre méthode
             const result = await sendData(collectedFormData);
             
-            if (result.success) {
-                alert('Votre message a été envoyé avec succès !');
+          if (result.success) {
+            console.log('Données envoyées avec succès:', collectedFormData);
+            
+                // Afficher un toast/notif de succès
+            toast('Votre message a été envoyé avec succès !', {
+              duration: 4000,
+              position: 'top-center',
+              style: {
+                background: '#b6e4d9',
+                color: 'white'
+              },
+            });
                 
                 // Reset du formulaire
                 setFormData({

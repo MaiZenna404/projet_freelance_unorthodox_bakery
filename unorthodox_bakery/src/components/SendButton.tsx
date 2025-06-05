@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Send } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 // Types pour le formulaire
 interface FormData {
@@ -31,14 +32,14 @@ const ADMIN_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ADMIN;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 // Email sur lequel le message sera envoyé (à changer une fois le projet terminé)
-const mailTo: string = "mai.than.222@gmail.com"
+const mailTo: string = "mai.than.222@gmail.com";
 
-const SendButton: React.FC<SendButtonProps> = ({ 
+const SendButton: React.FC<SendButtonProps> = ({
   formData,
-  type = "button", 
-  disabled = false, 
-  className = "", 
-  onClick 
+  type = "button",
+  disabled = false,
+  className = "",
+  onClick,
 }) => {
   const [isSending, setIsSending] = useState(false);
 
@@ -55,7 +56,7 @@ const SendButton: React.FC<SendButtonProps> = ({
 
   const handleSend = async () => {
     if (!isFormValid()) {
-      alert('Veuillez remplir tous les champs obligatoires.');
+      alert("Veuillez remplir tous les champs obligatoires.");
       return;
     }
 
@@ -69,12 +70,17 @@ const SendButton: React.FC<SendButtonProps> = ({
         from_email: formData.email,
         reply_to: formData.email, // Allows you to reply directly
         subject: formData.objet,
-        message: formData.message.replace(/\n/g, '<br>'), // Convert newlines to HTML breaks
-        telephone: formData.telephone || 'Non fourni'
+        message: formData.message.replace(/\n/g, "<br>"), // Convert newlines to HTML breaks
+        telephone: formData.telephone || "Non fourni",
       };
 
       // First send admin notification
-      await emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      await emailjs.send(
+        SERVICE_ID,
+        ADMIN_TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
+      );
 
       // Then send customer confirmation
       const customerParams = {
@@ -84,14 +90,36 @@ const SendButton: React.FC<SendButtonProps> = ({
         from_email: mailTo, // Use a business email
         subject: "Votre message a bien été reçu - Unorthodox Bakery",
         objet: formData.objet, // Add this to show in template
-        message: formData.message.substring(0, 50) + "..." // First part of their message
+        message: formData.message.substring(0, 50) + "...", // First part of their message
       };
-      await emailjs.send(SERVICE_ID, CUSTOMER_TEMPLATE_ID, customerParams, PUBLIC_KEY);
+      await emailjs.send(
+        SERVICE_ID,
+        CUSTOMER_TEMPLATE_ID,
+        customerParams,
+        PUBLIC_KEY
+      );
 
-      alert('Message envoyé avec succès !');
+      toast("✅ Votre message a été envoyé avec succès !", {
+        duration: 4000,
+        position: "bottom-right",
+        style: {
+          background: "#399385",
+          /* rounded corner */
+          borderRadius: "8px",
+          fontSize: "14px",
+          color: "white", // Dark text for better contrast
+        },
+      });
     } catch (error) {
       console.error(error);
-      alert('Erreur lors de l’envoi. Veuillez réessayer.');
+      toast.error("❗Erreur lors de l’envoi. Veuillez réessayer.", {
+        duration: 4000,
+        position: "top-center",
+        style: {
+          background: "#dc2626", // Red background for error
+          color: "white",
+        },
+      });
     }
 
     setIsSending(false);
@@ -102,7 +130,7 @@ const SendButton: React.FC<SendButtonProps> = ({
       type={type}
       disabled={disabled || !isFormValid() || isSending}
       onClick={onClick || handleSend}
-      className={`${className} w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm`}
+      className={`${className} w-full bg-[#53ae9f] hover:bg-[#399385] text-white font-bold py-3 px-6 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm`}
     >
       {isSending ? (
         <div className="flex items-center space-x-2">
