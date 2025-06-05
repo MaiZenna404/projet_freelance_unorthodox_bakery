@@ -13,7 +13,7 @@ export default function Services() {
       <>
         <div
           id="events"
-          className="w-full overflow-x-hidden min-h-[60vh] pt-[20%]"
+          className="w-full overflow-x-hidden min-h-[60vh] pt-[10%]"
         >
           {" "}
           {/* Add this wrapper */}
