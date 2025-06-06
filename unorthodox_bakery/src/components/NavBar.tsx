@@ -26,73 +26,23 @@ const bakeryInfos: BakeryDetails[] = [
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Add scroll detection for enhanced UX
-  /* useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  */
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <>
       {/* Main navbar - slightly reduced vertical padding */}
-      <nav className="w-screen backdrop-blur-md fixed top-0 z-50 border-b border-white/5 bg-[#b6e4d9]/80 py-3 md:py-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
-        {/* Mobile Layout - slightly reduced padding */}
+      <nav
+        className="w-screen backdrop-blur-md fixed top-0 left-0 right-0 z-[1000] border-b border-white/5 bg-[#b6e4d9]/80 py-3 md:py-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
+        style={{ position: "fixed", transform: "none" }}
+      >
+        {/* Mobile Layout - centered logo version */}
         <div className="block md:hidden w-full">
-          <div className="flex items-center justify-between px-5 py-1.5 max-w-7xl mx-auto">
-            {/* Logo - Mobile - slightly reduced size */}
-            <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
-              <img
-                src={Logo}
-                alt="Unorthodox Bakery Logo"
-                className="w-full h-full object-contain"
-              />
-            </div>
-
-            {/* Brand name - added more space */}
-            <div className="flex-1 overflow-hidden text-center px-3">
-              <ScrollLink
-                to="hero"
-                smooth={true}
-                duration={500}
-                offset={-100}
-                className="block w-full cursor-pointer"
-              >
-                <h1 className="font-bold tracking-wider text-xs text-center text-black">
-                  UNORTHODOX BAKERY
-                </h1>
-              </ScrollLink>
-
-              {/* Bakery info */}
-              {/* Mobile view - increased text size */}
-              <div className="flex justify-center items-center mt-0.5 overflow-x-auto w-full px-2">
-                {bakeryInfos.map((info, index) => (
-                  <React.Fragment key={index}>
-                    <h2 className="text-xs text-black/70 font-medium tracking-wide whitespace-nowrap">
-                      {info.name}
-                    </h2>
-                    {index < bakeryInfos.length - 1 && (
-                      <span className="mx-1.5 text-black/50 text-[15px] font-light">
-                        —
-                      </span>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-
-            {/* Mobile menu button - increased padding */}
+          <div className="flex items-center justify-between px-5 py-1.5 w-full mx-auto">
+            {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
-              className="ml-3 p-2.5 rounded-lg bg-white/20 hover:bg-white/30 transition-all duration-200 focus:outline-none active:scale-95"
+              className="p-2.5 rounded-lg bg-white/20 hover:bg-white/30 transition-all duration-200 focus:outline-none active:scale-95"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
@@ -114,6 +64,36 @@ export default function NavBar() {
                 />
               </div>
             </button>
+
+            {/* Centered Logo */}
+            <div className="flex-1 flex justify-center items-center">
+              <div className="flex flex-col items-center">
+                <img
+                  src={Logo}
+                  alt="Unorthodox Bakery Logo"
+                  className="w-12 h-12 object-contain"
+                />
+
+                {/* Bakery info - keep this below the logo */}
+                <div className="flex justify-center items-center mt-1 overflow-x-auto w-full px-2">
+                  {bakeryInfos.map((info, index) => (
+                    <React.Fragment key={index}>
+                      <h2 className="text-xs text-black/70 font-medium tracking-wide whitespace-nowrap">
+                        {info.name}
+                      </h2>
+                      {index < bakeryInfos.length - 1 && (
+                        <span className="mx-1.5 text-black/50 text-[10px] font-light">
+                          —
+                        </span>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Empty div for layout balance */}
+            <div className="w-10"></div>
           </div>
 
           {/* Mobile Menu Dropdown */}
@@ -194,20 +174,20 @@ export default function NavBar() {
           </div>
         </div>
 
-        {/* Desktop Layout - slightly reduced padding */}
+        {/* Desktop Layout - ensure full width */}
         <div className="hidden md:flex w-full items-center justify-center">
-          <div className="relative flex items-center justify-between px-7 py-1.5 max-w-7xl w-full mx-auto">
-            {/* Logo - Left - slightly reduced size */}
+          <div className="relative flex items-center justify-between px-7 py-1.5 w-full mx-auto">
+            {/* Logo - Left side */}
             <div className="lg:pl-[5%] flex-shrink-0 w-[250px] flex items-center justify-start align-bottom">
               <img
                 src={Logo}
                 alt="Unorthodox Bakery Logo"
-                className="w-16 h-16 object-contain transition-transform duration-300 hover:scale-105"
+                className="w-16 h-16 object-contain duration-300 hover:scale-105"
               />
             </div>
 
-            {/* Brand name - Center - slightly reduced spacing */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+            {/* Brand name - Center */}
+            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
               <ScrollLink
                 to="hero"
                 smooth={true}
@@ -238,8 +218,8 @@ export default function NavBar() {
               </div>
             </div>
 
-            {/* Navigation links - Right - slightly reduced width */}
-            <div className="flex-shrink-0 w-[200px] flex justify-end">
+            {/* Navigation links - Right */}
+            <div className="flex-shrink-0 w-[200px] flex justify-end lg:pr-[5%]">
               <ul className="flex space-x-1.5">
                 {navbarElements.map((element, index) => (
                   <li key={index}>
@@ -248,6 +228,9 @@ export default function NavBar() {
                       duration={300}
                       offset={-100}
                       spy={true}
+                      smooth={true}
+                      ignoreCancelEvents={true}
+                      spyThrottle={500}
                       activeClass="bg-white/30 shadow-sm"
                       className="font-medium text-base lg:text-[20px] text-black/90 hover:bg-white/20 px-4 py-2.5 rounded-lg transition-all duration-200 cursor-pointer block"
                     >
@@ -270,7 +253,7 @@ export default function NavBar() {
       )}
 
       {/* Adjusted spacer to match new navbar height */}
-      <div className="h-16 md:h-20"></div>
+      <div className="h-[72px] md:h-[84px]"></div>
     </>
   );
 }

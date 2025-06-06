@@ -197,4 +197,12 @@ button:focus-visible {
   .font-primary {
     font-family: var(--font-primary);
   }
+
+  .fixed-navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+  }
 }
