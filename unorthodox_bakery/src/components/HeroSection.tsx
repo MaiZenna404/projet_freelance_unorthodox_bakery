@@ -2,7 +2,7 @@ export default function HeroSection() {
   return (
     <>
       {/* Hero Section */}
-      <div id="hero" className="flex flex-col items-center justify-center min-h-[60vh] pt-[12%] px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/25 to-transparent mb-[3%]">
+      <div id="hero" className="flex flex-col items-center justify-center min-h-[60vh] px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/25 to-transparent mb-[3%]" style={{ paddingTop: "var(--navbar-height, 128px)" }}>
         <h1 className="font-bold tracking-widest w-full text-center text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
           PAINS AU LEVAIN, BON CAFÉ, PLAISIRS SALÉS & SUCRÉS
         </h1>

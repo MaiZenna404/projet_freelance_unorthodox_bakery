@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 
 interface NavBarProps {
@@ -25,6 +25,7 @@ const bakeryInfos: BakeryDetails[] = [
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement | null>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,9 +35,22 @@ export default function NavBar() {
     setIsMenuOpen(false);
   };
 
+    useEffect(() => {
+    const updateHeight = () => {
+      if (navRef.current) {
+        const height = navRef.current.offsetHeight;
+        document.documentElement.style.setProperty('--navbar-height', `${height}px`);
+      }
+    };
+
+    updateHeight(); // Initial
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
+
   return (
     <>
-      <nav className="w-full bg-[#b6e4d9]/80 backdrop-blur-md shadow-lg fixed top-0 z-50 border-b border-white/10">
+      <nav ref={navRef} className="w-full bg-[#b6e4d9]/80 backdrop-blur-md shadow-lg fixed top-0 z-50 border-b border-white/10">
         {/* Mobile Layout */}
         <div className="block md:hidden">
           {/* Mobile Header */}
@@ -195,8 +209,7 @@ export default function NavBar() {
         />
       )}
 
-      {/* Spacer to prevent content overlap */}
-      <div className="h-20 md:h-28"></div>
+      
     </>
   );
 }
