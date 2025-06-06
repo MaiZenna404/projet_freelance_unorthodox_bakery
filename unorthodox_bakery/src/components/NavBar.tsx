@@ -123,7 +123,7 @@ export default function NavBar() {
             }`}
           >
             <div className="bg-[#b6e4d9]/90 backdrop-blur-sm mt-1 rounded-lg shadow-md border border-white/30">
-              <ul className="py-1">
+            <ul className="py-2 space-y-1">
                 {navbarElements.map((element, index) => (
                   <li key={index}>
                     <ScrollLink
@@ -132,9 +132,8 @@ export default function NavBar() {
                       offset={-120}
                       spy={true}
                       activeClass="bg-white/15"
-                      className="block px-4 py-2.5 text-sm font-medium text-black/90 hover:bg-white/25 hover:text-black rounded-md transition-all duration-200 cursor-pointer"
-                      onClick={closeMenu}
-                    >
+                      className="block px-5 py-3 text-base font-semibold text-black/90 hover:bg-white/25 hover:text-black rounded-md transition-all duration-200 cursor-pointer"
+                      onClick={closeMenu}>
                       {element.link}
                     </ScrollLink>
                   </li>
