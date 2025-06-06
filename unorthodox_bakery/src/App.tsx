@@ -7,7 +7,8 @@ import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
 
 { /* Import UI components and styles */ }
-import { Toaster } from 'sonner'
+import { Toaster } from 'sonner';
+
 function App() {
   return (
     <>

@@ -1,7 +1,7 @@
 {
   /* Import UI components and styles */
 }
-import React from "react";
+
 import { Link as ScrollLink } from "react-scroll";
 
 export default function Pro() {
