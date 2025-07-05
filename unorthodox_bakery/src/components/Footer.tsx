@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 // import icons
-import Instagram from "@/assets/icons/instagram.svg";
+// import Instagram from "@/assets/icons/instagram.svg";
 import Mail from "@/assets/icons/mail.svg";
 import BusinessHours from "@/assets/icons/opening_hours.svg";
 import Location from "@/assets/icons/address.svg";
@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="w-full flex flex-col items-center gap-6 md:gap-8 max-w-4xl mx-auto px-4">
         {/* Social and contact links */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full gap-4">
-          <Link
+          {/* <Link
             to="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -26,11 +26,12 @@ export default function Footer() {
             Instagram
           </Link>
 
-          {/* Divider - hidden on mobile, visible on md+ */}
+          {/* Divider - hidden on mobile, visible on md+ *
           <div className="hidden md:block h-5 w-px bg-black/30 mx-4"></div>
 
-          {/* Horizontal divider for mobile only */}
+          {/* Horizontal divider for mobile only
           <div className="h-px w-1/2 bg-black/20 my-1 md:hidden"></div>
+          */}
 
           <Link
             to="mailto:ub.wagram@gmail.com"
@@ -44,7 +45,7 @@ export default function Footer() {
             ub.wagram@gmail.com
           </Link>
         </div>
-    
+
         {/* End Social and contact links */}
 
         {/* Horizontal divider for mobile only */}

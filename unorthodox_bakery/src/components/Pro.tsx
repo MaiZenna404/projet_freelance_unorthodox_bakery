@@ -7,7 +7,7 @@ import { Link as ScrollLink } from "react-scroll";
 export default function Pro() {
   return (
     <>
-      <div id="pro" className="w-full overflow-x-hidden min-h-[60vh] pt-[10%]">
+      <div id="pro" className="w-full overflow-x-hidden min-h-[60vh] pt-[10%] pb-9">
         {" "}
         {/* Add this wrapper */}
         <div className="flex flex-col items-end justify-center px-6 max-w-7xl mx-auto mb-[3%]">

@@ -38,7 +38,7 @@ export default function NavBar() {
       >
         {/* Mobile Layout - centered logo version */}
         <div className="block md:hidden w-full">
-          <div className="flex items-center justify-between px-5 py-1.5 w-full mx-auto">
+          <div className="flex flex-row-reverse items-center justify-between px-5 py-1.5 w-full mx-auto">
             {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
@@ -49,7 +49,7 @@ export default function NavBar() {
               <div className="w-5 h-4 flex flex-col justify-between">
                 <span
                   className={`h-0.5 w-full bg-black/70 rounded-full transition-all duration-200 ${
-                    isMenuOpen ? "rotate-45 translate-y-1.5" : ""
+                    isMenuOpen ? "rotate-45 translate-y-1.75" : ""
                   }`}
                 />
                 <span
