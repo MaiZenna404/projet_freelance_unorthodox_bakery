@@ -1,16 +1,13 @@
-{
-  /* Import UI components and styles */
-}
-
+{   /* Import UI components and styles */ }
 import { Link as ScrollLink } from "react-scroll";
 
 export default function Pro() {
   return (
     <>
-      <div id="pro" className="w-full overflow-x-hidden min-h-[60vh] pt-[10%] pb-9">
+      <div id="pro" className="w-full overflow-x-hidden min-h-[60vh] pt-[25%] sm:pt-[20%] md:pt-[15%] lg:pt-[12%] xl:pt-[10%] pb-[8%] sm:pb-[6%] md:pb-[5%] lg:pb-[4%] xl:pb-9">
         {" "}
         {/* Add this wrapper */}
-        <div className="flex flex-col items-end justify-center px-6 max-w-7xl mx-auto mb-[3%]">
+        <div className="flex flex-col items-end justify-center px-6 max-w-7xl mx-auto mb-[8%] sm:mb-[6%] md:mb-[5%] lg:mb-[4%] xl:mb-[3%]">
           <h2 className="font-bold tracking-widest text-right text-3xl mr-[5%]">
             HÔTELS & RESTAURANTS
           </h2>

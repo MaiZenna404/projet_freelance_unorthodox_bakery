@@ -1,7 +1,5 @@
-
 {/* Import UI components and styles */ }
 import { Link as ScrollLink } from "react-scroll";
-
 import { Button } from "./ui/button";
 
 {/* Import Catalogue pdf file */}
@@ -12,7 +10,7 @@ export default function Services() {
       <>
         <div
           id="events"
-          className="w-full overflow-x-hidden min-h-[60vh] pt-[10%]"
+          className="w-full overflow-x-hidden min-h-[60vh] pt-[25%] sm:pt-[20%] md:pt-[15%] lg:pt-[12%] xl:pt-[10%]"
         >
           {" "}
           {/* Add this wrapper */}
@@ -40,7 +38,7 @@ export default function Services() {
               </ScrollLink>
               .
             </p>
-
+            
             <Button className="ml-[5%] mt-6 text-lg font-medium tracking-wider bg-black text-white hover:bg-black/80 px-8 py-3 rounded-md">
               <a href={cataloguePDF} target="_blank" rel="noopener noreferrer">
                 Voir le Catalogue

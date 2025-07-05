@@ -2,7 +2,7 @@ export default function HeroSection() {
   return (
     <>
       {/* Hero Section */}
-      <div id="hero" className="flex flex-col items-center justify-center min-h-[60vh] pt-[12%] px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/25 to-transparent mb-[3%]">
+      <div id="hero" className="flex flex-col items-center justify-center min-h-[60vh] pt-[25%] sm:pt-[20%] md:pt-[15%] lg:pt-[12%] xl:pt-[10%] px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/25 to-transparent mb-[8%] sm:mb-[6%] md:mb-[5%] lg:mb-[4%] xl:mb-[3%]">
         <h1 className="font-bold tracking-widest w-full text-center text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
           PAINS AU LEVAIN, BON CAFÉ, PLAISIRS SALÉS & SUCRÉS
         </h1>
