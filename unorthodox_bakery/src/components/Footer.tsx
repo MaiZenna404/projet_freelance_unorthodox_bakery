@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-
 // import icons
-import Instagram from "@/assets/icons/instagram.svg";
+// import Instagram from "@/assets/icons/instagram.svg";
 import Mail from "@/assets/icons/mail.svg";
 import BusinessHours from "@/assets/icons/opening_hours.svg";
 import Location from "@/assets/icons/address.svg";
@@ -9,10 +8,10 @@ import Location from "@/assets/icons/address.svg";
 export default function Footer() {
   return (
     <footer className="w-full bg-white/5 backdrop-blur-sm flex flex-col items-center text-center pt-10 pb-8">
-      <div className="w-full flex flex-col items-center gap-8 max-w-4xl mx-auto">
+      <div className="w-full flex flex-col items-center gap-8 max-w-4xl mx-auto px-4">
         {/* Social and contact links */}
-        <div className="flex flex-row items-center justify-center w-full ml-[8%] gap-4">
-          <Link
+        <div className="flex flex-row items-center justify-center w-full">
+          {/* <Link
             to="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -25,7 +24,7 @@ export default function Footer() {
             />
             Instagram
           </Link>
-          <div className="h-5 w-px bg-black/30 mx-4"></div>
+          <div className="h-5 w-px bg-black/30 mx-4"></div> */}
           <Link
             to="mailto:ub.wagram@gmail.com"
             className="text-black font-primary text-md tracking-widest hover:underline px-4 py-1"
@@ -40,23 +39,23 @@ export default function Footer() {
         </div>
 
         {/* Address and hours */}
-        <div className="flex flex-row items-center w-full justify-center gap-4 ml-[2%]">
-          <p className="text-black font-primary text-md tracking-widest text-center">
+        <div className="flex flex-col md:flex-row items-center w-full justify-center gap-4 md:gap-8">
+          <p className="text-black font-primary text-md tracking-widest text-center flex items-center justify-center">
             <img
               src={Location}
               alt="Adresse"
-              className="inline-block mr-2 w-7"
+              className="inline-block mr-2 w-7 flex-shrink-0"
             />
-            169, Avenue de Wagram, 75017 Paris
+            <span>169, Avenue de Wagram, 75017 Paris</span>
           </p>
-          <div className="h-5 w-px bg-black/30 mx-4"></div>
-          <p className="text-black font-primary text-md tracking-widest text-center">
+          <div className="hidden md:block h-5 w-px bg-black/30"></div>
+          <p className="text-black font-primary text-md tracking-widest text-center flex items-center justify-center">
             <img
               src={BusinessHours}
               alt="Heures d'ouverture"
-              className="inline-block mr-2 w-10"
+              className="inline-block mr-2 w-10 flex-shrink-0"
             />
-            Du lundi au dimanche de 6h00 à 20h00
+            <span>Du lundi au dimanche de 6h00 à 20h00</span>
           </p>
         </div>
       </div>
